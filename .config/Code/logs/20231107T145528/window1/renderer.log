@@ -1,3 +1,0 @@
-2023-11-07 14:55:29.351 [warning] Via 'product.json#extensionEnabledApiProposals' extension 'ms-dotnettools.dotnet-interactive-vscode' wants API proposal 'languageConfigurationAutoClosingPairs' but that proposal DOES NOT EXIST. Likely, the proposal has been finalized (check 'vscode.d.ts') or was abandoned.
-2023-11-07 14:55:30.343 [warning] Settings pattern "GitHub.copilot.manageExtension" doesn't match any settings
-2023-11-07 14:55:32.567 [info] [perf] Render performance baseline is 60ms
