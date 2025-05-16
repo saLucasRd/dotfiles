@@ -1,5 +1,14 @@
 # My dotfiles
 
+1. **.zshrc**
+    - Configures Zsh shell.
+
+2. **kitty**
+    - Terminal emulator config.
+
+3. **ohmyposh**
+    - Prompt theme engine for shell.
+
 ## Requirements
 
 ### Git
