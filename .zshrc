@@ -28,7 +28,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 # command bar
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/oh-my-gruvbox.omp.json)"
 
 # Keybindings
 bindkey -e

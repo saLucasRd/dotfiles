@@ -1,0 +1,136 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
+  "palette": {
+    "sandstone": "#7c6f64",
+    "sandal": "#a79066",
+    "tallow": "#ab9b72",
+    "beeswax": "#ebdbb2",
+    "corvette": "#e5c07b",
+    "earls-green": "#b8ab26",
+    "chocolate": "#de8019",
+    "fire-engine-red": "#cc241d"
+  },
+  "blocks": [
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "p:beeswax",
+          "properties": {
+            "style": "full",
+            "folder_separator_template": "<p:tallow>\udb83\udfdf</>"
+          },
+          "style": "plain",
+          "template": "<p:earls-green>\ue5ff</> {{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "background": "p:earls-green",
+          "foreground": "p:beeswax",
+          "trailing_diamond": "\ue0b4",
+          "leading_diamond": "\ue0b6",
+          "properties": {
+            "branch_icon": "",
+            "fetch_stash_count": false,
+            "fetch_status": false,
+            "fetch_upstream_icon": false,
+            "fetch_worktree_count": false
+          },
+          "style": "diamond",
+          "template": "<b>{{ .HEAD }}</b>",
+          "type": "git"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "background": "p:fire-engine-red",
+          "foreground": "white",
+          "trailing_diamond": "\ue0b4",
+          "leading_diamond": "\ue0b6",
+          "style": "diamond",
+          "template": "\uea87 {{ reason .Code }}",
+          "type": "status"
+        },
+        {
+          "type": "session",
+          "style": "plain",
+          "foreground": "p:corvette",
+          "template": " {{ if .Root }}<p:chocolate>\uedce</> {{ end }}{{ if not .Root }}<p:chocolate>\uedc5</> {{ end }}"
+        },
+        {
+          "foreground": "p:corvette",
+          "properties": {
+            "branch_icon": "",
+            "fetch_status": true,
+            "fetch_stash_count": false,
+            "fetch_upstream_icon": false,
+            "fetch_worktree_count": false
+          },
+          "style": "plain",
+          "template": "{{ if .Working.Changed }}<p:sandal>\uf427</>{{ end }} ",
+          "type": "git"
+        },
+        {
+          "type": "session",
+          "style": "plain",
+          "foreground": "p:corvette",
+          "template": "${USER^} "
+        },
+        {
+          "foreground": "p:corvette",
+          "properties": {
+            "time_format": "15<p:sandal>:</>04 Mon<p:sandal>.</> 02<p:sandal>\udb83\udfdf</>01"
+          },
+          "style": "plain",
+          "template": "<p:chocolate>\udb85\udee1</> {{ .CurrentDate | date .Format }}",
+          "type": "time"
+        },
+        {
+          "type": "owm",
+          "style": "plain",
+          "foreground": "p:corvette",
+          "template": " <p:chocolate><b>{{.Weather}}</b></> {{.Temperature}}<p:sandal>{{.UnitIcon}} </>",
+          "properties": {
+            "api_key": "bd86280b4eb3fc710759abf6a7f53ca4",
+            "location": "rimini,it",
+            "units": "metric",
+            "http_timeout": 5000,
+            "cache_timeout": 30
+          }
+        },
+        {
+          "foreground": "p:corvette",
+          "properties": {
+            "charged_icon": "<p:chocolate>\udb84\udea3</> ",
+            "charging_icon": "<p:chocolate>\udb80\udc84</> ",
+            "discharging_icon": "<p:chocolate>\udb80\udc7d</> "
+          },
+          "style": "plain",
+          "template": "{{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }}<p:sandal>\udb80\udff0</> ",
+          "type": "battery"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "p:sandstone",
+          "style": "plain",
+          "template": "\uf4df",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "final_space": true
+}

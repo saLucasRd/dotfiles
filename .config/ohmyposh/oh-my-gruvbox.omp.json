@@ -1,0 +1,157 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "beeswax": "#ebdbb2",
+    "chocolate": "#de8019",
+    "corvette": "#e5c07b",
+    "earls-green": "#b8ab26",
+    "fire-engine-red": "#cc241d",
+    "sandal": "#a79066",
+    "sandstone": "#7c6f64",
+    "tallow": "#ab9b72"
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none",
+            "folder_separator_template": "<p:tallow>\udb83\udfdf</>",
+            "style": "full"
+          },
+          "template": "<p:earls-green>\ue5ff</> {{ .Path }} ",
+          "foreground": "p:beeswax",
+          "type": "path",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "branch_icon": "",
+            "cache_duration": "none",
+            "fetch_stash_count": false,
+            "fetch_status": false,
+            "fetch_upstream_icon": false,
+            "fetch_worktree_count": false
+          },
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "template": "<b>{{ .HEAD }}</b>",
+          "foreground": "p:beeswax",
+          "background": "p:earls-green",
+          "type": "git",
+          "style": "diamond"
+        }
+      ],
+      "newline": true
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "template": "\uea87 {{ reason .Code }}",
+          "foreground": "white",
+          "background": "p:fire-engine-red",
+          "type": "status",
+          "style": "diamond"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": " {{ if .Root }}<p:chocolate>\uedce</> {{ end }}{{ if not .Root }}<p:chocolate>\uedc5</> {{ end }}",
+          "foreground": "p:corvette",
+          "type": "session",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "branch_icon": "",
+            "cache_duration": "none",
+            "fetch_stash_count": false,
+            "fetch_status": true,
+            "fetch_upstream_icon": false,
+            "fetch_worktree_count": false
+          },
+          "template": "{{ if .Working.Changed }}<p:sandal>\uf427</>{{ end }} ",
+          "foreground": "p:corvette",
+          "type": "git",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "{{.UserName}} ",
+          "foreground": "p:corvette",
+          "type": "session",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "time_format": "15<p:sandal>:</>04 Mon<p:sandal>.</> 02<p:sandal>\udb83\udfdf</>01"
+          },
+          "template": "<p:chocolate>\udb85\udee1</> {{ .CurrentDate | date .Format }}",
+          "foreground": "p:corvette",
+          "type": "time",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "api_key": "bd86280b4eb3fc710759abf6a7f53ca4",
+            "cache_duration": "none",
+            "http_timeout": 5000,
+            "location": "rimini,it",
+            "units": "metric"
+          },
+          "cache": {
+            "duration": "30m0s",
+            "strategy": "folder"
+          },
+          "template": " <p:chocolate><b>{{.Weather}}</b></> {{.Temperature}}<p:sandal>{{.UnitIcon}} </>",
+          "foreground": "p:corvette",
+          "type": "owm",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "charged_icon": "<p:chocolate>\udb84\udea3</> ",
+            "charging_icon": "<p:chocolate>\udb80\udc84</> ",
+            "discharging_icon": "<p:chocolate>\udb80\udc7d</> "
+          },
+          "template": "{{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }}<p:sandal>\udb80\udff0</> ",
+          "foreground": "p:corvette",
+          "type": "battery",
+          "style": "plain"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "\uf4df",
+          "foreground": "p:sandstone",
+          "type": "text",
+          "style": "plain"
+        }
+      ],
+      "newline": true
+    }
+  ],
+  "version": 3,
+  "final_space": true
+}
