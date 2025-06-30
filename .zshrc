@@ -28,7 +28,8 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 # command bar
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/oh-my-gruvbox.omp.json)"
+# eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/oh-my-gruvbox.omp.json)"
+eval "$(starship init zsh)"
 
 # Keybindings
 bindkey -e
