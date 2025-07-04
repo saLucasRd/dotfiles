@@ -53,6 +53,7 @@ beautiful.useless_gap = 5
 -- Autostart
 awful.spawn.once("picom --config ~/.config/picom/picom.conf")
 awful.spawn.once("nitrogen --restore &")
-awful.spawn.once("nvidia-settings --config home/interloper/.nvdia-settings-rc --load-config-only")
+awful.spawn.once("nvidia-settings  --load-config-only")
 awful.spawn.once("nm-applet &")
 awful.spawn.once("syncthing &")
+awful.spawn.once("flameshot &")

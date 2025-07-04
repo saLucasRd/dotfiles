@@ -11,6 +11,8 @@ local terminal = vars.terminal
 local tagkeys = require("key.tagkey")
 
 globalkeys = gears.table.join(tagkeys,
+awful.key({ }, "Print", function() awful.spawn("flameshot gui") end,
+          {description = "Take a screenshot with Flameshot", group = "launcher"}),
     awful.key({ modkey }, "v", function () awful.spawn("zen-browser") end,
               {description= "launch zen browser", group = "launcher"}),
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
