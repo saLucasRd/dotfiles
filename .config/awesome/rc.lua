@@ -50,10 +50,17 @@ require("main.signal")
 -- Gaps
 beautiful.useless_gap = 5
 
+naughty.config.defaults.width = 300
+naughty.config.defaults.height = 80
+naughty.config.defaults.icon_size = 64
+
 -- Autostart
 awful.spawn.once("picom --config ~/.config/picom/picom.conf")
 awful.spawn.once("nitrogen --restore &")
 awful.spawn.once("nvidia-settings  --load-config-only")
 awful.spawn.once("nm-applet &")
-awful.spawn.once("syncthing &")
+--awful.spawn.once("syncthing &")
 awful.spawn.once("flameshot &")
+awful.spawn.once("syncthingtray &")
+awful.spawn.once("xinput --set-prop '8' 'libinput Accel Profile Enabled' 0 1 0")
+awful.spawn.once("xinput --set-prop '8' 'libinput Accel Speed' 0")
