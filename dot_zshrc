@@ -34,7 +34,7 @@ eval "$(starship init zsh)"
 # Keybindings
 bindkey -e
 bindkey '^p' history-search-backward
-bindkey '^n' history-search-foward
+bindkey '^n' history-search-forward
 
 
 # History
@@ -56,9 +56,21 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
-
 # alises
-alias ls='eza -l'
+alias ls='eza --icons'                 
+alias ll='eza -la --icons --git'       
+alias lt='eza --tree --level=2 --icons'
+
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+
+alias cleanup='sudo pacman -Rns $(pacman -Qdtq)'
+
+alias glog='git log --oneline --graph --decorate --all' 
+
+alias nzsh='nvim ~/.zshrc'
+alias szsh='source ~/.zshrc'
 
 # shell integrations
 eval "$(fzf --zsh)"
