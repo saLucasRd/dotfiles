@@ -1,13 +1,13 @@
-@define-color background #2C2A24;
-@define-color second-background #3A372F;
-@define-color text #DDD5C4;
-@define-color borders #A0907A;
-@define-color focused #D08B57;
-@define-color focused2 #BFAA80;
-@define-color color1 #7699A3;
-@define-color color2 #8D7AAE;
-@define-color color3 #78997A;
-@define-color urgent #B05A5A;
+@define-color background #282828;
+@define-color surface #32302F;
+@define-color text #D4BE98;
+@define-color purple #d3869b;
+@define-color orange #E78A4E;
+@define-color blue #7DAEA3;
+@define-color red #EA6962;
+@define-color green #A9B665;
+@define-color fg0 #D4BE98;
+@define-color fg1 #DDC7A1;
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
@@ -39,21 +39,21 @@ window#waybar.empty #window {
   margin: 10px 0 0 10px;
   padding: 0 0 0 7px;
   background-color: @background;
-  border: 2px solid @focused;
+  border: 2px solid @orange;
 }
 
 .modules-center {
   margin: 10px 0 0 0;
   padding: 0 10px 0 10px;
   background-color: @background;
-  border: 2px solid @focused;
+  border: 2px solid @orange;
 }
 
 .modules-right {
   margin: 10px 10px 0 0;
   padding: 0 10px 0 10px;
   background-color: @background;
-  border: 2px solid @focused;
+  border: 2px solid @orange;
 }
 
 
@@ -63,26 +63,41 @@ button {
 }
 
 
-#workspaces button {
-  min-width: 0;
-  padding: 0 8px 0 8px;
-  background-color: transparent;
-  color: @text;
-  border-radius: 0;
+#tags button {
+    min-width: 0;
+    padding: 0 8px 0 8px;
+    background-color: transparent;
+    color: @fg0;
+    border-radius: 0;
+    border-bottom: 3px solid transparent;
 }
 
-#workspaces button:hover {
-  background-color: @second-background;
+
+
+
+#tags button.occupied {
+    color: @blue;
 }
 
-#workspaces button.active {
-  color: @focused2;
-  background-color: transparent;
+#tags button.focused {
+    color: @purple;
+    background-color: transparent;
+    box-shadow: @purple;
+    border-bottom: 3px solid;
 }
 
-#workspaces button.urgent {
-  background-color: @urgent;
+#tags button:hover {
+    color: @background;
+    background: @fg1;
+    box-shadow: inherit;
+    text-shadow: inherit;
 }
+
+#tags button.urgent {
+    background-color: @red;
+}
+
+
 
 #mode {
     background-color: #64727D;
@@ -100,7 +115,7 @@ button {
   padding: 0 10px;
 }
 #wireplumber:hover {
-    color: @color1;
+    color: @green;
 }
 
 #custom-media,
@@ -181,12 +196,12 @@ label:focus {
 
 #wireplumber {
     background-color: @background;
-    color: @color3;
+    color: @green;
 }
 
 #wireplumber.muted {
     background-color: @trasparat;
-    color: @urgent;
+    color: @red;
 }
 
 #custom-media {

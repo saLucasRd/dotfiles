@@ -3,11 +3,11 @@
     "spacing": 5,
 
     "modules-left": [
-        "hyprland/workspaces",
+        "dwl/tags",
         "group/Utilities"
     ],
     "modules-center": [
-        "hyprland/window"
+        "dwl/window"
     ],
     "modules-right": [
         "group/system"
@@ -48,18 +48,15 @@
         ]
     },
 
-        "hyprland/workspaces": {
-        "all-outputs": false,
+        "dwl/tags": {
         "format": "{icon}",
-        "format-icons": {
-            "urgent": "",
-            "active": "", 
-            "visible": "",
-            "default": "",
-            "empty": "•"
-        }
+        "ignore-hidden": true,
+        "on-click": "activate",
+        "on-click-right": "deactivate",
+        "sort-by-id": true
     },
-        "hyprland/window": {
+
+        "dwl/window": {
         "format": "{title}", 
         "max-length": 20,
         "min-length": 0,
