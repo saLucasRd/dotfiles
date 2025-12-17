@@ -23,7 +23,7 @@
 window#waybar {
   background-color: transparent;
   border-bottom: 0;
-  color: @text;
+  color: #D4BE98;
   transition: background-color 0.5s;
 }
 
@@ -38,22 +38,22 @@ window#waybar.empty #window {
 .modules-left {
   margin: 10px 0 0 10px;
   padding: 0 0 0 7px;
-  background-color: @background;
-  border: 2px solid @orange;
+  background-color: #282828;
+  border: 2px solid #E78A4E;
 }
 
 .modules-center {
   margin: 10px 0 0 0;
   padding: 0 10px 0 10px;
-  background-color: @background;
-  border: 2px solid @orange;
+  background-color: #282828;
+  border: 2px solid #E78A4E;
 }
 
 .modules-right {
   margin: 10px 10px 0 0;
   padding: 0 10px 0 10px;
-  background-color: @background;
-  border: 2px solid @orange;
+  background-color: #282828;
+  border: 2px solid #E78A4E;
 }
 
 
@@ -67,7 +67,7 @@ button {
     min-width: 0;
     padding: 0 8px 0 8px;
     background-color: transparent;
-    color: @fg0;
+    color: #D4BE98;
     border-radius: 0;
     border-bottom: 3px solid transparent;
 }
@@ -76,25 +76,25 @@ button {
 
 
 #tags button.occupied {
-    color: @blue;
+    color: #7DAEA3;
 }
 
 #tags button.focused {
-    color: @purple;
+    color: #d3869b;
     background-color: transparent;
-    box-shadow: @purple;
+    box-shadow: #d3869b;
     border-bottom: 3px solid;
 }
 
 #tags button:hover {
-    color: @background;
-    background: @fg1;
+    color: #282828;
+    background: #D4BE98;
     box-shadow: inherit;
     text-shadow: inherit;
 }
 
 #tags button.urgent {
-    background-color: @red;
+    background-color: #EA6962;
 }
 
 
@@ -115,7 +115,7 @@ button {
   padding: 0 10px;
 }
 #wireplumber:hover {
-    color: @green;
+    color: #A9B665;
 }
 
 #custom-media,
@@ -195,13 +195,13 @@ label:focus {
 }
 
 #wireplumber {
-    background-color: @background;
-    color: @green;
+    background-color: #282828;
+    color: #A9B665;
 }
 
 #wireplumber.muted {
     background-color: @trasparat;
-    color: @red;
+    color: #EA6962;
 }
 
 #custom-media {
