@@ -1,5 +1,7 @@
+export LANG=en_US.UTF-8
 # set the directory for zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+export JDTLS_JAVA_EXECUTABLE="/usr/lib/jvm/java-21-openjdk/bin/java"
 
 # Download Zinit, if its not there
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -11,12 +13,14 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 # plugins
-zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
+
 # add in snippets
+zinit snippet OMZP::alias-finder
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::archlinux
@@ -27,6 +31,8 @@ autoload -Uz compinit && compinit
 
 zinit cdreplay -q
 
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # command bar
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 
@@ -70,9 +76,15 @@ alias glog='git log --oneline --graph --decorate --all'
 
 alias nzsh='nvim ~/.zshrc'
 alias szsh='source ~/.zshrc'
+alias n='nvim'
 
 # shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
+if [ -z "$TMUX" ]; then
+  tmux attach -t main || tmux new -s main
+fi
+
 setopt nobeep
+export PATH="$HOME/.local/bin:$PATH"
