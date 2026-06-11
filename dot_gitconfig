@@ -5,4 +5,4 @@
 [color]
 	ui = auto
 [credential]
-	helper = store
+	helper = /usr/libexec/git-core/git-credential-libsecret

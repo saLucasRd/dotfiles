@@ -1,4 +1,7 @@
 export LANG=en_US.UTF-8
+export PATH="$HOME/.local/bin:$PATH"
+export EDITOR=nvim
+export VISUAL=nvim
 # set the directory for zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 export JDTLS_JAVA_EXECUTABLE="/usr/lib/jvm/java-21-openjdk/bin/java"
@@ -23,7 +26,6 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit snippet OMZP::alias-finder
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
 zinit snippet OMZP::command-not-found
 
 # Load completions
@@ -62,15 +64,15 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # alises
-alias ls='eza --icons'                 
-alias ll='eza -la --icons --git'       
-alias lt='eza --tree --level=2 --icons'
+alias ls='eza --color=always --icons'
+alias ll='eza --color=always -lha --icons --git'
+alias lt='eza --color=always --tree --level=2 --icons'
 
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-alias cleanup='sudo pacman -Rns $(pacman -Qdtq)'
+alias cleanup='sudo xbps-remove -Oo'
 
 alias glog='git log --oneline --graph --decorate --all' 
 
@@ -80,11 +82,13 @@ alias n='nvim'
 
 # shell integrations
 eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
-
-if [ -z "$TMUX" ]; then
-  tmux attach -t main || tmux new -s main
-fi
 
 setopt nobeep
-export PATH="$HOME/.local/bin:$PATH"
+export XBPS_DISTDIR="$HOME/.void-packages"
+export QT_QPA_PLATFORM=wayland
+
+if [ -z "$XDG_RUNTIME_DIR" ]; then
+    export XDG_RUNTIME_DIR=/run/user/$(id -u)
+fi
+
+eval "$(zoxide init --cmd cd zsh)"
