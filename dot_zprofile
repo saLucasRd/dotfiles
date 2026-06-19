@@ -1,0 +1,20 @@
+# ~/.zprofile — sourced once at login (before .zshrc), e.g. TTY login
+
+# Auto-start mango when logging in on tty1.
+if [ -z "$WAYLAND_DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
+	# Wayland app hints 
+	export XDG_SESSION_TYPE=wayland
+	export XDG_CURRENT_DESKTOP=wlroots
+	export MOZ_ENABLE_WAYLAND=1
+	export QT_QPA_PLATFORM=wayland
+	export _JAVA_AWT_WM_NONREPARENTING=1
+
+	# NVIDIA + wlroots + Electron
+	export GBM_BACKEND=nvidia-drm
+	export __GLX_VENDOR_LIBRARY_NAME=nvidia
+	export ELECTRON_OZONE_PLATFORM_HINT=auto
+	export NVD_BACKEND=direct
+	export LIBVA_DRIVER_NAME=nvidia
+
+	exec dbus-run-session mango
+fi

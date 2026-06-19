@@ -1,0 +1,2 @@
+# secrets / cache — never commit
+.config/noctalia/plugins/habitica/settings.json
