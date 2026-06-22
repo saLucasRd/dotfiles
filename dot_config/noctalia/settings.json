@@ -238,6 +238,13 @@
                     "textColor": "none",
                     "useMonospaceFont": true,
                     "usePadding": false
+                },
+                {
+                    "defaultSettings": {
+                        "monitorOrder": [
+                        ]
+                    },
+                    "id": "plugin:mangowc-layout-switcher"
                 }
             ]
         }
@@ -652,31 +659,7 @@
         "activeTemplates": [
             {
                 "enabled": true,
-                "id": "zenBrowser"
-            },
-            {
-                "enabled": true,
                 "id": "yazi"
-            },
-            {
-                "enabled": true,
-                "id": "qt"
-            },
-            {
-                "enabled": true,
-                "id": "foot"
-            },
-            {
-                "enabled": true,
-                "id": "gtk"
-            },
-            {
-                "enabled": true,
-                "id": "discord"
-            },
-            {
-                "enabled": true,
-                "id": "steam"
             },
             {
                 "enabled": true,

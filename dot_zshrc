@@ -1,4 +1,6 @@
 export LANG=en_US.UTF-8
+
+[[ -z "$TMUX" ]] && exec tmux new-session -A -s main
 export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=nvim
 export VISUAL=nvim
@@ -85,7 +87,6 @@ eval "$(fzf --zsh)"
 
 setopt nobeep
 export XBPS_DISTDIR="$HOME/.void-packages"
-export QT_QPA_PLATFORM=wayland
 
 if [ -z "$XDG_RUNTIME_DIR" ]; then
     export XDG_RUNTIME_DIR=/run/user/$(id -u)
