@@ -61,8 +61,10 @@ sudo xbps-install foot tmux
 
 ### Compositor & Wayland
 ```bash
-sudo xbps-install mango dbus pipewire wireplumber grim slurp wl-clipboard
+sudo xbps-install mango dbus pipewire wireplumber grim slurp wl-clipboard satty
 ```
+- `Print` — captura região → copia pra clipboard
+- `Shift+Print` — captura região → abre satty para anotação
 - [noctalia-shell](https://github.com/noctalia-dev/noctalia-shell) — bar, launcher, control center (install separately)
 - [nvibrant](https://github.com/libvibrant/nvibrant) — NVIDIA saturation (`pipx install nvibrant`, **void-desktop only**)
 
