@@ -1,6 +1,6 @@
 export LANG=en_US.UTF-8
 
-[[ -z "$TMUX" ]] && exec tmux new-session -A -s main
+[[ -z "$TMUX" && $- == *i* ]] && exec tmux new-session -A -s main
 export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=nvim
 export VISUAL=nvim
@@ -31,7 +31,7 @@ zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
 
 # Load completions
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -d ~/.cache/zcompdump-$ZSH_VERSION
 
 zinit cdreplay -q
 
