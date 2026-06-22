@@ -5,17 +5,24 @@ source =~/.config/mango/keybinds.conf
 source =~/.config/mango/theme.conf
 
 # autoexec
-exec-once = qs -c noctalia-shell
-exec-once=nvibrant 1023 1023
 exec-once=pipewire
 exec-once=pipewire-pulse
 exec-once=wireplumber
+{{- if eq .chezmoi.hostname "void-desktop" }}
+exec-once=nvibrant 1023 1023
+{{- end }}
+exec-once = qs -c noctalia-shell
 
 # monitors
+{{- if eq .chezmoi.hostname "void-desktop" }}
 # LG Ultra Gear 144hz
 monitorrule=name:DP-1,width:1920,height:1080,refresh:144,x:0,y:0,scale:1
 # LG 75hz
 monitorrule=name:HDMI-A-1,width:1920,height:1080,refresh:75,x:1920,y:0,scale:1
+{{- else if eq .chezmoi.hostname "void-thinkpad" }}
+# ThinkPad T480 internal display
+monitorrule=name:eDP-1,width:1920,height:1080,refresh:60,x:0,y:0,scale:1
+{{- end }}
 
 # Scroller Layout Setting
 scroller_structs=20
@@ -89,4 +96,3 @@ tagrule=id:9,layout_name:scroller
 # TODO: find noctalia layer name (check with `weston-info | grep layer` while launcher open)
 # layerrule=animation_type_open:zoom,layer_name:NOCTALIA_LAYER_NAME
 # layerrule=animation_type_close:zoom,layer_name:NOCTALIA_LAYER_NAME
-

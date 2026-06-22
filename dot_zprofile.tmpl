@@ -7,15 +7,15 @@ if [ -z "$WAYLAND_DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
 	export MOZ_ENABLE_WAYLAND=1
 	export QT_QPA_PLATFORM=wayland
 	export _JAVA_AWT_WM_NONREPARENTING=1
+	export ELECTRON_OZONE_PLATFORM_HINT=auto
+{{- if eq .chezmoi.hostname "void-desktop" }}
+	# NVIDIA + wlroots
 	export WLR_NO_HARDWARE_CURSORS=1
 	export __NV_PRIME_RENDER_OFFLOAD=1
-
-	# NVIDIA + wlroots + Electron
 	export GBM_BACKEND=nvidia-drm
 	export __GLX_VENDOR_LIBRARY_NAME=nvidia
-	export ELECTRON_OZONE_PLATFORM_HINT=auto
 	export NVD_BACKEND=direct
 	export LIBVA_DRIVER_NAME=nvidia
-
+{{- end }}
 	exec dbus-run-session mango
 fi
