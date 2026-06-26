@@ -83,19 +83,6 @@ sudo xbps-install pipewire wireplumber
 ```bash
 sudo xbps-install font-jetbrains-mono-nerd
 ```
----
-
-## Theming
-GTK theme, icons, and cursor are selected via [nwg-look](https://github.com/nwg-piotr/nwg-look) — it writes the `gtk-3.0`/`gtk-4.0` `settings.ini` files and symlinks the GTK4 assets into `~/.config/gtk-4.0/`.
-> Only the `settings.ini` config is tracked. Theme assets are not vendored (too large) — install them manually, then re-run nwg-look to regenerate the GTK4 symlinks.
-
-| Type | Name | Source |
-|------|------|--------|
-| GTK | `Kanagawa-B-LB-Dark` | [Kanagawa GTK Theme](https://store.kde.org/p/1810560) |
-| Icons | `Kanagawa` | [Kanagawa Icons Theme](https://store.kde.org/p/1810565) |
-| Cursor | `vimix-kanagawa-cursors-lotus` | [Vimix-kanagawa-cursors](https://github.com/walldmtd/Vimix-kanagawa-cursors) |
-
-Install GTK themes into `~/.local/share/themes`, icons + cursor into `~/.local/share/icons`, then select them in nwg-look.
 
 ---
 

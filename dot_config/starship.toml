@@ -4,7 +4,7 @@ palette = "noctalia"
 # Line 1: path + git | exec time right-aligned
 # Line 2: ❯
 format = """
-$directory$git_branch$git_status\
+$username$hostname$directory$git_branch$git_status\
 $fill\
 $cmd_duration
 $character"""
@@ -57,9 +57,21 @@ vimcmd_symbol = "[❮](magenta)"
 
 # Minimal — zen shows nothing else
 [username]
+show_always = true
+format = "[$user](green)[@](white)"
+style_user = "green"
+style_root = "red bold"
+disabled = false
+
+[os]
 disabled = true
+
 [hostname]
-disabled = true
+ssh_only = false
+format = "[$hostname ]($style)"
+style = "#ffa066 bold"
+trim_at = ""
+disabled = false
 [time]
 disabled = true
 [battery]
