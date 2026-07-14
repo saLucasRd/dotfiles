@@ -102,3 +102,5 @@ if [ -z "$XDG_RUNTIME_DIR" ]; then
 fi
 
 eval "$(zoxide init --cmd cd zsh)"
+export PATH="/home/fatkiwi/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/home/fatkiwi/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
