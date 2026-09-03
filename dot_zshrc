@@ -1,7 +1,6 @@
 export LANG=en_US.UTF-8
 export PATH="$HOME/.local/bin:$PATH"
 
-[[ -z "$TMUX" && $- == *i* ]] && exec tmux new-session -A -s main
 export EDITOR=nvim
 export VISUAL=nvim
 # set the directory for zinit and plugins
@@ -104,3 +103,5 @@ fi
 eval "$(zoxide init --cmd cd zsh)"
 export PATH="/home/fatkiwi/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/fatkiwi/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+alias music-sync="rsync -rltz --omit-dir-times --no-perms --no-owner --no-group --progress ~/Music/Shared/ root@192.168.2.57:/music/"
+
