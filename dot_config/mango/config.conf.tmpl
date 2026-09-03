@@ -8,21 +8,16 @@ source =~/.config/mango/theme.conf
 exec-once=pipewire
 exec-once=pipewire-pulse
 exec-once=wireplumber
-{{- if eq .chezmoi.hostname "void-desktop" }}
-exec-once=nvibrant 1023 1023
-{{- end }}
+# exec-once=nvibrant 1023 1023
 exec-once=noctalia
 
 # monitors
-{{- if eq .chezmoi.hostname "void-desktop" }}
 # LG Ultra Gear 144hz
 monitorrule=name:DP-1,width:1920,height:1080,refresh:144,x:0,y:0,scale:1
 # LG 75hz
 monitorrule=name:HDMI-A-1,width:1920,height:1080,refresh:75,x:1920,y:0,scale:1
-{{- else if eq .chezmoi.hostname "void-thinkpad" }}
 # ThinkPad T480 internal display
-monitorrule=name:eDP-1,width:1920,height:1080,refresh:60,x:0,y:0,scale:1
-{{- end }}
+# monitorrule=name:eDP-1,width:1920,height:1080,refresh:60,x:0,y:0,scale:1
 
 # Scroller Layout Setting
 scroller_structs=20
