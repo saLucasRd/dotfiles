@@ -6,3 +6,5 @@
 	ui = auto
 [credential]
 	helper = /usr/libexec/git-core/git-credential-libsecret
+[pull]
+	rebase = true
