@@ -75,9 +75,9 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # alises
-alias ls='eza --color=always --icons'
-alias ll='eza --color=always -lha --icons --git'
-alias lt='eza --color=always --tree --level=2 --icons'
+alias ls='eza --color=always --icons=always'
+alias ll='eza --color=always -lha --icons=always --git'
+alias lt='eza --color=always --tree --level=2 --icons=always'
 
 alias cp='cp -i'
 alias mv='mv -i'
