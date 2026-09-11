@@ -6,9 +6,6 @@ fpath=(~/.zfunc $fpath)
 autoload -U compinit
 compinit
 
-# zellij
-echo 'eval "$(zellij setup --generate-auto-start zsh)"' >> ~/.zshrc
-
 export EDITOR=nvim
 export VISUAL=nvim
 # set the directory for zinit and plugins
@@ -108,53 +105,13 @@ if [ -z "$XDG_RUNTIME_DIR" ]; then
     export XDG_RUNTIME_DIR=/run/user/$(id -u)
 fi
 
+if [[ -z "$ZELLIJ" ]] && [[ $- == *i* ]]; then
+  _sess="main-$(hostname)"
+  zellij attach --create "$_sess"
+  unset _sess
+fi
+
 eval "$(zoxide init --cmd cd zsh)"
 export PATH="/home/fatkiwi/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/fatkiwi/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 alias music-sync="rsync -rltz --omit-dir-times --no-perms --no-owner --no-group --progress ~/Music/Shared/ root@192.168.2.57:/music/"
-
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
-eval "$(zellij setup --generate-auto-start zsh)"
