@@ -93,9 +93,11 @@ eval "$(fzf --zsh)"
 setopt nobeep
 export XBPS_DISTDIR="$HOME/.void-packages"
 
-if [[ -z "$ZELLIJ" ]] && [[ -o interactive ]]; then
+if [[ -z "$ZELLIJ" ]] && [[ -n "$PS1" ]]; then
+    # Use auto-attach so it connects to an existing session or creates one cleanly
     export ZELLIJ_AUTO_ATTACH=true
-    export ZELLIJ_AUTO_EXIT=true
+    # Keep ZELLIJ_AUTO_EXIT disabled (commented out) to prevent accidental terminal closure loops
+    # export ZELLIJ_AUTO_EXIT=true
     
     eval "$(zellij setup --generate-auto-start zsh)"
 fi
