@@ -1,6 +1,12 @@
 export LANG=en_US.UTF-8
 export PATH="$HOME/.local/bin:$PATH"
-eval "$(keychain --eval --quiet id_ed25519)"
+
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    export SSH_AUTH_SOCK="$HOME/.ssh/agent/socket"
+    if [ ! -S "$SSH_AUTH_SOCK" ]; then
+        eval $(ssh-agent -a "$SSH_AUTH_SOCK")
+    fi
+fi
 
 fpath=(~/.zfunc $fpath)
 autoload -U compinit
@@ -50,7 +56,6 @@ bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
-
 # History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -87,22 +92,16 @@ alias nzsh='nvim ~/.zshrc'
 alias szsh='source ~/.zshrc'
 alias n='nvim'
 
-# shell integrations
 eval "$(fzf --zsh)"
 
 setopt nobeep
 export XBPS_DISTDIR="$HOME/.void-packages"
 
 if [[ -z "$ZELLIJ" ]] && [[ -n "$PS1" ]]; then
-    # Use auto-attach so it connects to an existing session or creates one cleanly
     export ZELLIJ_AUTO_ATTACH=true
-    # Keep ZELLIJ_AUTO_EXIT disabled (commented out) to prevent accidental terminal closure loops
-    # export ZELLIJ_AUTO_EXIT=true
-    
     eval "$(zellij setup --generate-auto-start zsh)"
 fi
 
 eval "$(zoxide init --cmd cd zsh)"
 export PATH="/home/fatkiwi/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/fatkiwi/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
-alias music-sync="rsync -rltz --omit-dir-times --no-perms --no-owner --no-group --progress ~/Music/Shared/ root@192.168.2.57:/music/"
