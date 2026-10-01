@@ -3,8 +3,8 @@ high_contrast = false
 ui_scale = 1.0
 
 [audio]
-enable_overdrive = false
-enable_sounds = false
+enable_overdrive = true
+enable_sounds = true
 notification_sound = ""
 sound_volume = 0.5
 volume_change_sound = ""
@@ -20,41 +20,43 @@ order = [ "main" ]
     [bar.main]
     auto_hide = false
     background_opacity = 1.0
-    border = "outline"
-    border_width = 0.0
+    border = "primary"
+    border_width = 1.0
     capsule = false
     capsule_fill = "surface_variant"
     capsule_group = []
     capsule_opacity = 1.0
     capsule_padding = 6.0
+    capsule_radius = 0
     capsule_thickness = 0.75999999046325684
-    center = [ "bar", "clock", "bar_3" ]
+    center = [ "clock" ]
     concave_edge_corners = true
     contact_shadow = false
     enabled = true
-    end = [ "bar_4", "tray", "notifications", "volume", "brightness", "bar_2", "widget", "summary", "nextboot-selector" ]
+    end = [ "tray", "bar", "notifications", "bar_6", "status_2", "network_2", "battery", "brightness", "volume" ]
     font_scale = 1.0
     font_weight = 700
     hover_highlight = true
+    icon_color = "tertiary"
     layer = "top"
     margin_edge = 10
-    margin_ends = 150
+    margin_ends = 50
     margin_opposite_edge = 0
-    padding = 14
+    padding = 13
     panel_overlap = 1
     position = "top"
-    radius = 12
-    radius_bottom_left = 12
-    radius_bottom_right = 12
-    radius_top_left = 12
-    radius_top_right = 12
+    radius = 0
+    radius_bottom_left = 0
+    radius_bottom_right = 0
+    radius_top_left = 0
+    radius_top_right = 0
     reserve_space = true
     scale = 1.0
     shadow = true
     show_on_workspace_switch = true
     smart_auto_hide = false
-    start = [ "workspaces", "media", "status", "next-task" ]
-    thickness = 34
+    start = [ "workspaces", "media", "next-task", "bar_5" ]
+    thickness = 35
     widget_spacing = 10
 
         [bar.main.dead_zone]
@@ -70,12 +72,14 @@ sync_all_monitors = false
 
 [calendar]
 enabled = true
-refresh_minutes = 15
 event_date_format = "%A %e %B"
 event_time_format = "%H:%M"
+refresh_minutes = 15
+
+[config]
 
 [control_center]
-hidden_tabs = [ "power", "network", "bluetooth" ]
+hidden_tabs = [ "power", "bluetooth" ]
 show_session_button = true
 show_shortcut_labels = true
 sidebar = "compact"
@@ -83,7 +87,7 @@ sidebar_section = "compact"
 width = 700
 
     [control_center.calendar]
-    show_events_card = false
+    show_events_card = true
     show_week_numbers = false
 
     [[control_center.shortcuts]]
@@ -93,7 +97,7 @@ width = 700
     type = "wallpaper"
 
     [[control_center.shortcuts]]
-    type = "alexander/screen-toolkit:toggle"
+    type = "wifi"
 
 [desktop_widgets]
 enabled = true
@@ -109,7 +113,7 @@ active_monitor_only = false
 active_opacity = 1.0
 active_scale = 1.0
 auto_hide = false
-background_opacity = 0.87999999523162842
+background_opacity = 0.4999999888241291
 border = "outline"
 border_width = 0.0
 concave_edge_corners = true
@@ -244,9 +248,14 @@ tint_intensity = 0.30000001192092896
 wallpaper = ""
 
 [lockscreen_widgets]
-enabled = true
+enabled = false
 schema_version = 2
-widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-login-box@HDMI-A-1" ]
+widget_order = [
+    "lockscreen-login-box@HDMI-A-2",
+    "lockscreen-login-box@eDP-1",
+    "lockscreen-login-box@DP-1",
+    "lockscreen-login-box@HDMI-A-1"
+]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -260,8 +269,8 @@ widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-login-box@HDMI-A-1" ]
     cy = 961.0
     enabled = true
     output = "DP-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
+    placement_height = 0.0
+    placement_width = 0.0
     rotation = 0.0
     type = "login_box"
 
@@ -288,12 +297,66 @@ widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-login-box@HDMI-A-1" ]
     cy = 961.0
     enabled = true
     output = "HDMI-A-1"
+    placement_height = 0.0
+    placement_width = 0.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-2"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "HDMI-A-2"
     placement_height = 1080.0
     placement_width = 1920.0
     rotation = 0.0
     type = "login_box"
 
-        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-2".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
         background_color = "surface_variant"
         background_opacity = 0.88
         background_radius = 12.0
@@ -360,20 +423,48 @@ scale = 1.0
     volume_output = true
     wifi = true
 
+[plugin_settings."autumn/network-toolkit"]
+hotspot_max_connections = 2
+hotspot_ssid = "void-thinkpad-hotspot"
+refreshinterval = 15
+widget_display_mode = "network_bluetooth"
+
 [plugin_settings."avivbintangaringga/nextboot-selector"]
 close_on_select = true
 panel_placement = "floating"
 reboot_on_select = true
 
+[plugin_settings."blackbartblues/keymap"]
+compositor = "mangowc"
+keyboard_layout = "75"
+mangowc_config = "~/.config/mango/keybinds.conf"
+panel_layer = "overlay"
+
 [plugin_settings."cleboost/ssh-launcher"]
 terminal = "kitty"
+
+[plugin_settings."ezequiel/mango_layouts"]
+panel_position = "center"
+
+[plugin_settings."kenn/keybind-cheatsheet"]
+cheatsheet_position = "auto"
+compositor = "mango"
+show_actions = true
 
 [plugin_settings."noctalia/wallhaven"]
 download_dir = "/home/fatkiwi/Pictures/Wallpapers"
 
 [plugin_settings."piero-93/battery-power-management"]
+battery_device = "BAT0 & BAT1"
+colorize_by_profile = false
 panel_placement = "floating"
 show_balanced_icon = true
+
+[plugin_settings."piero-93/thinkpad-fan"]
+panel_placement = "floating"
+
+[plugin_settings."prponkshe/mango-displays"]
+panel_placement = "floating"
 
 [plugin_settings."raycursive/discord-voice"]
 discord_binary = "/usr/bin/vesktop"
@@ -381,16 +472,26 @@ discord_binary = "/usr/bin/vesktop"
 [plugin_settings."redxtech/super-productivity"]
 auto_start = true
 details_placement = "floating"
-native_command = "gtk-launch super_productivity"
+launch_method = "native"
+native_command = "/home/fatkiwi/AppImages/super_productivity.appimage"
 notify_due = true
 
 [plugin_settings."rylos/syncthing"]
+api_key = "NxmTkTwZPuJKtNXfXyX5uau4hVYMcon6"
 panel_placement = "floating"
+url = "http://localhost:8384/"
 
 [plugin_settings."tordex/system-updater"]
-enable_xbps = false
+adapters_folder = "/home/fatkiwi/.local/state/noctalia/plugins/materialized/community/system-updater/adapters"
+auto_check_minutes = 360
+enable_xbps = true
+
+[plugin_settings."vn1k/cursor"]
+manager_layer = "overlay"
+manager_placement = "floating"
 
 [plugin_settings."yuuto/calculator"]
+angle_unit = "deg"
 panel_open_near_click = false
 panel_placement = "floating"
 
@@ -398,17 +499,19 @@ panel_placement = "floating"
 auto_update = "all"
 enabled = [
     "rylos/syncthing",
-    "autumn/network-toolkit",
-    "avivbintangaringga/nextboot-selector",
-    "alexander/screen-toolkit",
-    "noctalia/timer",
-    "tordex/system-updater",
     "yuuto/calculator",
-    "raycursive/discord-voice",
+    "davemhammer/tailscale",
+    "prponkshe/mango-displays",
+    "aristides/udiskie",
+    "vn1k/cursor",
+    "tordex/processes",
+    "muhammadessam/network-control",
     "redxtech/super-productivity",
+    "tordex/system-updater",
     "cleboost/ssh-launcher",
-    "noctalia/wallhaven",
-    "tmelik/system-monitor"
+    "riversyx/noctaproton-vpn",
+    "blackbartblues/keymap",
+    "noctalia/timer"
 ]
 
     [[plugins.source]]
@@ -434,24 +537,24 @@ clipboard_enabled = true
 clipboard_history_max_entries = 10
 clipboard_image_action_command = ""
 clipboard_keep_from_closed_apps = true
-corner_radius_scale = 1.0
+corner_radius_scale = 0.0
 date_format = "%A, %x"
 disable_mipmaps = false
 external_ip_enabled = false
-font_family = "JetBrainsMono NF"
+font_family = "JetBrainsMono NF SemiBold"
 input_borders = true
 lang = "en"
 launch_apps_as_systemd_services = false
 launch_apps_custom_command = ""
 niri_overview_type_to_launch_enabled = false
 offline_mode = false
-password_style = "default"
+password_style = "random"
 polkit_agent = true
 popup_borders = true
 popup_shadows = true
 screen_time_enabled = true
 settings_show_advanced = true
-settings_window_translucent = false
+settings_window_translucent = true
 setup_wizard_enabled = true
 shared_gl_context = true
 show_location = true
@@ -463,7 +566,7 @@ time_format = "{:%H:%M}"
     speed = 1.0
 
     [shell.greeter_sync]
-    auto_sync = false
+    auto_sync = true
 
     [shell.keyboard_layout]
 
@@ -522,7 +625,7 @@ time_format = "{:%H:%M}"
     [shell.screenshot]
     confirm_region = false
     copy_to_clipboard = true
-    directory = ""
+    directory = "/home/fatkiwi/Pictures/screenshots"
     filename_pattern = ""
     freeze_screen = true
     pipe_command = ""
@@ -633,18 +736,39 @@ ram_pct_critical_threshold = 90.0
 swap_pct_activity_threshold = 20.0
 swap_pct_critical_threshold = 80.0
 
+[templates]
+
 [theme]
 builtin = "Ayu"
 community_palette = "Everforest"
-custom_palette = "birds-of-paradise"
+custom_palette = "birds_of_paradise"
 mode = "dark"
 pure_black_dark = false
-source = "community"
-wallpaper_scheme = "dysfunctional"
+source = "wallpaper"
+wallpaper_scheme = "vibrant"
 
     [theme.templates]
-    builtin_ids = [ "gtk3", "gtk4", "kitty", "mango", "qt", "starship" ]
-    community_ids = [ "zen-browser", "discord", "blender", "neovim", "fastfetch", "obs", "zellij", "fzf" ]
+    builtin_ids = [ "btop", "gtk3", "gtk4", "kitty", "mango", "qt", "starship" ]
+    community_ids = [
+        "sonora",
+        "pywalfox",
+        "discord",
+        "telegram",
+        "blender",
+        "libreoffice",
+        "neovim",
+        "obsidian",
+        "steam",
+        "fastfetch",
+        "obs",
+        "zellij",
+        "papirus-icons",
+        "whitesur-icons",
+        "bat",
+        "fzf",
+        "lazygit",
+        "superfile"
+    ]
     enable_builtin_templates = true
     enable_community_templates = true
 
@@ -667,6 +791,29 @@ transition_on_startup = false
     order = "random"
     recursive = true
 
+    [wallpaper.default]
+    path = "/home/fatkiwi/Pictures/Wallpapers/Arnold-Böcklin-die-Toteninsel-2-Fassung-scaled.jpg"
+
+    [wallpaper.last]
+    path = "/home/fatkiwi/Pictures/Wallpapers/Arnold-Böcklin-die-Toteninsel-2-Fassung-scaled.jpg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/fatkiwi/Pictures/Wallpapers/Arnold-Böcklin-die-Toteninsel-2-Fassung-scaled.jpg"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/fatkiwi/Pictures/Wallpapers/Arnold-Böcklin-die-Toteninsel-2-Fassung-scaled.jpg"
+    theme_mode = "dark"
+    wallpaper_scheme = "faithful"
+
+    [[wallpaper.favorite]]
+    path = "/home/fatkiwi/Pictures/Wallpapers/wallhaven-395jv9_1920x1080.png"
+    theme_mode = "auto"
+
+    [[wallpaper.favorite]]
+    path = "/home/fatkiwi/Pictures/Wallpapers/wallhaven-nzlvoy_1920x1080.png"
+    theme_mode = "auto"
+
 [weather]
 effects = true
 enabled = true
@@ -682,7 +829,7 @@ type = "active_window"
 
 [widget.bar]
 show_idle_on_horizontal = false
-type = "noctalia/timer:bar"
+type = "rylos/syncthing:bar"
 
 [widget.bar_2]
 type = "rylos/syncthing:bar"
@@ -694,8 +841,22 @@ type = "yuuto/calculator:bar"
 hide_when_disconnected = true
 type = "raycursive/discord-voice:bar"
 
+[widget.bar_5]
+type = "noctalia/timer:bar"
+
+[widget.bar_6]
+type = "riversyx/noctaproton-vpn:bar"
+
+[widget.battery]
+hide_when_full = true
+hide_when_plugged = true
+
+[widget.brightness]
+enabled = false
+
 [widget.clock]
 anchor = true
+capsule = true
 font_weight = 800
 type = "clock"
 
@@ -738,6 +899,10 @@ type = "media"
 show_label = false
 type = "network"
 
+[widget.network_2]
+show_text = false
+type = "muhammadessam/network-control:network"
+
 [widget.network_rx]
 stat = "net_rx"
 type = "sysmon"
@@ -771,6 +936,9 @@ type = "spacer"
 [widget.status]
 type = "tordex/system-updater:status"
 
+[widget.status_2]
+type = "davemhammer/tailscale:status"
+
 [widget.summary]
 disk_display_mode = "available"
 network_interface = "enp4s0"
@@ -786,12 +954,23 @@ type = "tmelik/system-monitor:summary"
 stat = "cpu_temp"
 type = "sysmon"
 
+[widget.tray]
+drawer = true
+hide_passive = false
+match_adjacent_spacing = true
+pinned = [ "keepass", "KeePassXC" ]
+
 [widget.widget]
 type = "autumn/network-toolkit:widget"
 
 [widget.workspaces]
+anchor = true
 capsule_padding = 10
+focused_color = "tertiary"
 focused_output_only = true
+font_weight = 600
 minimal = true
+occupied_color = "primary"
+scale = 1.1000000000000001
 style = "minimal"
 type = "workspaces"
