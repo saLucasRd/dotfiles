@@ -1,0 +1,68 @@
+# ==============================================================================
+# CHEZMOI IGNORE RULES
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Noctalia & Desktop Caches / Generated State
+# ------------------------------------------------------------------------------
+.local/state/noctalia/plugins/materialized/**
+.local/state/noctalia/logs/**
+.local/state/wireplumber/**
+.local/state/pipewire/**
+
+# ------------------------------------------------------------------------------
+# 2. General Linux Caches & Runtime Ephemera
+# ------------------------------------------------------------------------------
+.cache/**
+.local/share/Trash/**
+.local/share/recent-used.xbel
+.local/share/flatpak/app/**
+.local/state/*.log
+
+# ------------------------------------------------------------------------------
+# 3. Development Tools & Language Artifacts
+# ------------------------------------------------------------------------------
+# Python
+**/__pycache__/**
+*.pyc
+.venv/**
+.venv
+.pytest_cache/**
+
+# Node.js
+**/node_modules/**
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Rust & Cargo
+.cargo/registry/**
+.cargo/git/**
+**/target/**
+
+# Go
+.go/pkg/**
+
+# Zsh & Shell History
+.zsh_history
+.bash_history
+.lesshst
+.python_history
+
+# ------------------------------------------------------------------------------
+# 4. Sensitive Data & Secrets Protection
+# ------------------------------------------------------------------------------
+.ssh/id_*
+!.ssh/id_*.pub
+.gnupg/**
+.keepassxc/**
+*.key
+*.pem
+*.p12
+
+# ------------------------------------------------------------------------------
+# 5. OS & System Files
+# ------------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+lost+found/**
