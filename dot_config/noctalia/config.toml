@@ -482,7 +482,7 @@ panel_placement = "floating"
 url = "http://localhost:8384/"
 
 [plugin_settings."tordex/system-updater"]
-adapters_folder = "/home/fatkiwi/.local/state/noctalia/plugins/materialized/community/system-updater/adapters"
+adapters_folder = "/home/fatkiwi/.config/noctalia/system-updater-adapters"
 auto_check_minutes = 360
 enable_xbps = true
 
