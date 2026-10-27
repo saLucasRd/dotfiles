@@ -92,11 +92,6 @@ eval "$(fzf --zsh)"
 setopt nobeep
 export XBPS_DISTDIR="$HOME/.void-packages"
 
-if [[ -z "$ZELLIJ" ]] && [[ -n "$PS1" ]]; then
-    export ZELLIJ_AUTO_ATTACH=true
-    eval "$(zellij setup --generate-auto-start zsh)"
-fi
-
 eval "$(zoxide init --cmd cd zsh)"
 export PATH="/home/fatkiwi/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/fatkiwi/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"

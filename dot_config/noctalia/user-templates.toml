@@ -15,3 +15,7 @@
 #input_path = "/etc/xdg/quickshell/noctalia-shell/Assets/Templates/noctalia.json"
 #output_path = "/home/fatkiwi/.cache/noctalia/placeholder.json"
 
+
+[templates.mango-fixed]
+input_path = "~/.config/noctalia/templates/mango.conf"
+output_path = "~/.config/mango/theme.conf"
