@@ -477,7 +477,7 @@ native_command = "/home/fatkiwi/AppImages/super_productivity.appimage"
 notify_due = true
 
 [plugin_settings."rylos/syncthing"]
-api_key = "NxmTkTwZPuJKtNXfXyX5uau4hVYMcon6"
+api_key = ""
 panel_placement = "floating"
 url = "http://localhost:8384/"
 
